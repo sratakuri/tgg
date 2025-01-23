@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web App</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #FFB6C1, #FF69B4); /* розовый фон */
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #message-box {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        #heart-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            animation: heart-beat 1s infinite;
+            z-index: 0;
+        }
+
+        #cross {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 50px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        @keyframes heart-beat {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            25% { transform: translate(-50%, -50%) scale(1.2); }
+            50% { transform: translate(-50%, -50%) scale(1); }
+            75% { transform: translate(-50%, -50%) scale(1.2); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div id="message-box">АМИНА Я ЛЮБЛЮ ТЕБЯ</div>
+    <div id="heart-background"></div>
+    <div id="cross"></div>
+
+    <script>
+        const cross = document.getElementById("cross");
+
+        // Функция для движения крестика
+        cross.addEventListener("mouseover", function() {
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+            cross.style.left = randomX + "px";
+            cross.style.top = randomY + "px";
+        });
+    </script>
+</body>
+</html>
